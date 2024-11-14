@@ -24,7 +24,7 @@ ASurvivalCraftCharacter::ASurvivalCraftCharacter()
 	// Create a CameraComponent	
 	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
 	FirstPersonCameraComponent->SetupAttachment(GetCapsuleComponent());
-	FirstPersonCameraComponent->SetRelativeLocation(FVector(-10.f, 0.f, 60.f)); // Position the camera
+	FirstPersonCameraComponent->SetRelativeLocation(FVector(9.f, 0.f, 60.f)); // Position the camera
 	FirstPersonCameraComponent->bUsePawnControlRotation = true;
 
 	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
@@ -33,7 +33,16 @@ ASurvivalCraftCharacter::ASurvivalCraftCharacter()
 	Mesh1P->SetupAttachment(FirstPersonCameraComponent);
 	Mesh1P->bCastDynamicShadow = false;
 	Mesh1P->CastShadow = false;
-	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+	Mesh1P->SetRelativeLocation(FVector(-11.f, 0.f, -150.f));
+	Mesh1P->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));
+
+	Mesh3P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh3P"));
+	Mesh3P->SetOwnerNoSee(true);
+	Mesh3P->SetupAttachment(GetCapsuleComponent());
+	Mesh3P->bCastDynamicShadow = true;
+	Mesh3P->CastShadow = true;
+	Mesh3P->SetRelativeLocation(FVector(0.f, 0.f, -95.f));
+	Mesh3P->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));
 
 }
 
