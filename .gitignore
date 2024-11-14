@@ -13,3 +13,5 @@ Saved
 *.xcodeproj
 *.xcworkspace
 .idea
+Plugins/Developer/RiderLink
+.vsconfig
