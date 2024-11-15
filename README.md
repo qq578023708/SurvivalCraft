@@ -14,7 +14,7 @@
 - 可消耗的
 - 可建造的
 
-![image-20241115083529028](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20241115083529028.png)
+![image-20241115083529028](./images/image-20241115083529028.png)
 
 #### 物品稀有度
 
@@ -24,7 +24,7 @@
 - 史诗级
 - 传说级
 
-![image-20241115085145854](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20241115085145854.png)
+![image-20241115085145854](./images/image-20241115085145854.png)
 
 
 
@@ -37,7 +37,7 @@
 
 
 
-![image-20241115085947319](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20241115085947319.png)
+![image-20241115085947319](./images/image-20241115085947319.png)
 
 #### 物品结构
 
@@ -59,4 +59,4 @@
 - 当前弹药
 - 最大弹药
 
-![image-20241115092053308](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20241115092053308.png)
+![image-20241115092053308](./images/image-20241115092053308.png)
