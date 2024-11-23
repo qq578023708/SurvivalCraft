@@ -8,9 +8,9 @@
 #include "SCDragDropOperation.generated.h"
 
 struct FSCItemInfo;
-enum ESCArmorType : int;
-enum ESCItemType : int;
-enum ESCContainerType : int;
+enum ESCArmorType:uint8 ;
+enum ESCItemType:uint8 ;
+enum ESCContainerType:uint8 ;
 /**
  * 
  */

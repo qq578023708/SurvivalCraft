@@ -28,7 +28,6 @@ void USCItemContainerGrid::AddSlotToGrid(int SlotIndex, USCUserWidget* InSlot)
 {
 	if(UUniformGridSlot* OutSlot= ItemGrid->AddChildToUniformGrid(InSlot))
 	{
-		UE_LOG(LogTemp,Warning,TEXT("USCItemContainerGrid::AddSlotToGrid %d"),SlotIndex);
 		int RowIndex= SlotIndex/SlotsPerRow;
 		int ColIndex= SlotIndex%SlotsPerRow;
 		OutSlot->SetRow(RowIndex);

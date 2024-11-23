@@ -7,7 +7,7 @@
 #include "SCItemContainerGrid.generated.h"
 
 class UUniformGridPanel;
-enum ESCContainerType : int;
+enum ESCContainerType :uint8;
 /**
  * 
  */

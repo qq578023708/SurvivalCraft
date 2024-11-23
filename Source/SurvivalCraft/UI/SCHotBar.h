@@ -18,5 +18,8 @@ class SURVIVALCRAFT_API USCHotBar : public USCUserWidget
 public:
 	UPROPERTY(EditAnywhere,meta=(BindWidget))
 	TObjectPtr<USCItemContainerGrid> WBP_ItemContainerGrid;
+
+	UFUNCTION(BlueprintCallable,Server,Unreliable)
+	void UseHotBarOnServer(int SlotIndex);
 	
 };

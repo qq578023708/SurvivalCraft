@@ -7,7 +7,7 @@
 #include "SCItemContainer.generated.h"
 
 
-enum ESCContainerType : int;
+enum ESCContainerType:uint8;
 struct FSCItemInfo;
 
 UCLASS(ClassGroup=(Custom),Blueprintable,BlueprintType, meta=(BlueprintSpawnableComponent))

@@ -18,7 +18,7 @@ void ASCPlayerController::BeginPlay()
 
 	checkf(MainHudClass,TEXT("Player controller must set MainHudClass"));
 
-	if(!HasAuthority())
+	if(IsLocalPlayerController())
 	{
 		if(UUserWidget* MainHUDWidget= CreateWidget<UUserWidget>(this,MainHudClass))
 		{
@@ -26,8 +26,6 @@ void ASCPlayerController::BeginPlay()
 			MainHUDWidget->AddToViewport();
 		}
 	}
-	
-
 	
 }
 

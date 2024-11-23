@@ -6,8 +6,11 @@
 #include "UObject/Object.h"
 #include "SCItemType.generated.h"
 
+class ASCEquipableItemBase;
+class ASCEquipableItem1P;
+
 UENUM(BlueprintType)
-enum ESCItemType
+enum ESCItemType:uint8
 {
 	Resource,//资源
 	Equipable,//可装备的
@@ -17,7 +20,7 @@ enum ESCItemType
 };
 
 UENUM(BlueprintType)
-enum ESCItemRarity
+enum ESCItemRarity:uint8
 {
 	Common, //常见的
 	Uncommon, //不常见的
@@ -27,7 +30,7 @@ enum ESCItemRarity
 };
 
 UENUM(BlueprintType)
-enum ESCArmorType
+enum ESCArmorType:uint8
 {
 	Helmet, //头盔
 	Chest, //上衣
@@ -98,12 +101,40 @@ public:
 };
 
 UENUM(BlueprintType)
-enum ESCContainerType
+enum ESCContainerType:uint8
 {
 	PlayerInventory, //库存
 	PlayerHotbar, //快捷栏
 	PlayerStore, //存储
 	PlayerAromor //护甲
+};
+
+UENUM(BlueprintType)
+enum EEquipableState:uint8
+{
+	Hatchet, //斧头
+	Bow, //弓箭
+	Rock, //石头
+	Rifle, //步枪
+	RocketLauncher, //火箭发射器
+	Default, //默认
+	Spear, //矛
+	Swimming //游泳
+};
+
+USTRUCT(BlueprintType)
+struct FEquipableItemInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	FName SocketName;
+
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<EEquipableState> AnimationState;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ASCEquipableItem1P> EquipableItemClass1P;
 };
 
 /**

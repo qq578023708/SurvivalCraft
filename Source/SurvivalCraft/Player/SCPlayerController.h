@@ -7,7 +7,7 @@
 #include "SCPlayerController.generated.h"
 
 struct FSCItemInfo;
-enum ESCContainerType : int;
+enum ESCContainerType :uint8;
 class USCMainHUD;
 class USCUserWidget;
 /**

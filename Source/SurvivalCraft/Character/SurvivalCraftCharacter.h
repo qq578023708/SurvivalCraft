@@ -5,13 +5,15 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Interfaces/SCCharacter.h"
+#include "Item/SCItemType.h"
 #include "Item/SCPlayerInventory.h"
 #include "Logging/LogMacros.h"
 #include "SurvivalCraftCharacter.generated.h"
 
+enum EEquipableState:uint8;
 class USCPlayerHotBar;
-enum ESCArmorType : int;
-enum ESCContainerType : int;
+enum ESCArmorType:uint8 ;
+enum ESCContainerType:uint8;
 class USCItemDefinitionBase;
 struct FSCItemInfo;
 class USCPlayerInventory;
@@ -64,6 +66,8 @@ class ASurvivalCraftCharacter : public ACharacter,public ISCCharacter
 
 	UPROPERTY(EditAnywhere)
 	TSoftObjectPtr<USCItemDefinitionBase> ItemDefinition;
+
+	
 	
 public:
 	ASurvivalCraftCharacter();
@@ -73,7 +77,12 @@ public:
 	UFUNCTION(BlueprintCallable,Server,unreliable)
 	void OnSlotDropOnServer(ESCContainerType TargetContainer,ESCContainerType FromContainer,int FromSlotIndex,int ToSlotIndex,ESCArmorType ArmorType);
 
-	USCPlayerInventory* GetPlayerInventoryComponent() const {return  FindComponentByClass<USCPlayerInventory>();};
+	USCPlayerInventory* GetPlayerInventoryComponent() const {return  FindComponentByClass<USCPlayerInventory>();}
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Replicated, Category = Inventory)
+	TEnumAsByte<EEquipableState> EquippedState=Default;
+
+	virtual void GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const override;
 
 protected:
 	/** Called for movement input */
@@ -91,6 +100,8 @@ protected:
 public:
 	/** Returns Mesh1P subobject **/
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
+
+	USkeletalMeshComponent* GetMesh3P() const { return Mesh3P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 

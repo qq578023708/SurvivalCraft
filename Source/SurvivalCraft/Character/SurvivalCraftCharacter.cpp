@@ -12,6 +12,7 @@
 #include "Item/SCItemType.h"
 #include "Item/SCPlayerHotBar.h"
 #include "Item/SCPlayerInventory.h"
+#include "Net/UnrealNetwork.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -100,6 +101,11 @@ void ASurvivalCraftCharacter::SetupPlayerInputComponent(UInputComponent* PlayerI
 }
 
 
+void ASurvivalCraftCharacter::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(ASurvivalCraftCharacter,EquippedState);
+}
 
 void ASurvivalCraftCharacter::Move(const FInputActionValue& Value)
 {
